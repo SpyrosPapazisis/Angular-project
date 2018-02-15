@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+  <head>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:500,300,700,400' rel='stylesheet' type='text/css'>
+    <link href="css/main.css" rel="stylesheet" />
+
+
+  </head>
+
+  <body ng-app="myApp">
+
+    <!-- Navigation --> 
+    <nav>
+      <div class="container">
+        <object align="left" height="100" width="300" data="img/NBS.jpg"></object>
+        <div>
+          <span class="menu-button">Menu</span>
+          <span class="login-button">Login</span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Nav Menu -->
+
+    <div class='nav-menu' id="nav-dropdown">
+      <div class='container'>
+        <ul>
+          <li>Books</li>
+          <li>Comedy</li>
+          <li>Romance</li>
+          <li>Fantasy</li>
+          <li>Adventure</li>
+        </ul>
+        <ul>
+          <li>Contact</li>
+          <li>Twitter</li>
+          <li>Facebook</li>
+          <li>Instagram</li>
+          <li>Email</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Login Form -->
+
+    <div class='login-form'>
+      <div class='container'>
+        <form>
+          <h4>Username</h4>
+          <input class='username' />
+          <h4>Password</h4>
+          <input type='password' />
+          <input class='sign-in-button' type='submit' value='Sign In' />
+        </form>
+      </div>
+    </div>
+
+
+    <div class="main" ng-controller="MainController">
+      <div class="container">
+
+        <h1>{{ title }}</h1>
+        <div class="input-group">
+          <input type="text" ng-model="test" class="form-control" placeholder="Search...">
+        </div> 
+        <h2>{{ promo }}</h2>
+
+        <div ng-repeat="product in products | filter:{ name: test }" class="col-md-6"> 
+          <div class="thumbnail"> 
+            <img ng-src="{{ product.cover }}"> 
+            <p class="title">{{ product.name }}</p> 
+            <p class="price">{{ product.price | currency }}</p> 
+            <p class="date">{{ product.pubdate | date }}</p>
+            <button type="button" class="btn btn-info btn-md">Info</button>
+            <div class="rating">
+              <p class="likes glyphicon glyphicon-thumbs-up" ng-click="plusOne($index)"></p>
+              <p class="likes-display">{{ product.likes }}</p>
+              <p class="dislikes glyphicon glyphicon-thumbs-down" ng-click="minusOne($index)"></p>
+              <p class="dislikes-display">{{ product.dislikes }}</p>
+            </div>
+          </div>
+          <div class='details'>
+            <p>{{ product.summary }}</p>
+            <div class='buy-now-button disabled add-one'>
+              <div class='text-one'>
+                <h3>Add to cart</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="container">
+        <h2>Available for iPhone and Android.</h2>
+        <img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/app-store.png" width="120px" />
+        <img src="http://s3.amazonaws.com/codecademy-content/projects/shutterbugg/google-play.png" width="110px" />
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+    <script src="js/main.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+    <!-- Modules -->
+    <script src="js/app.js"></script>
+
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
+  </body>
+</html>
