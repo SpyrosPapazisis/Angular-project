@@ -81,9 +81,7 @@ nav {
 
 
 
-.container object {
 
-}
 
 
 .main {
@@ -113,7 +111,7 @@ nav {
  position: relative;
  padding: 50px;
    border-radius: 0;
-   margin-bottom:50px;
+  /* margin-bottom:50px; */
 }
 
 .thumbnail img {
@@ -235,11 +233,15 @@ nav {
 .details {
    display: none;
    background-color: #535353;
-   color: #EFEFEF; }
+   color: #EFEFEF; 
+  }
 
 .footer {
  text-align: center;
- margin: 80px 0 110px;
+ margin: 2px;
+ background-color: #323232;
+ color: white;
+ 
 }
 
 .footer h2 {
